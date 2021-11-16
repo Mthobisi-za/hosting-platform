@@ -19,6 +19,9 @@ app.set("views", "./views");
 
 app.get("/", (req,res)=>{
     res.render('index');
+});
+app.get("/myacc", (req,res)=>{
+    res.render("myaccount")
 })
 
 app.listen(PORT, ()=>{

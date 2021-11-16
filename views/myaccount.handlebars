@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="/css/laptop.css">
+<link rel="stylesheet" href="/css/phone.css">
+
+<div class="laptop_dashboard">
+    <div class="leftmenu">
+        <div class="tabs is-centered">
+            <ul>
+                <li class="is-active"><a>My sites</a></li>
+                <li><a>Profile</a></li>
+                <li><a><i class="far fa-comment-alt"><span class="sp1">2</span></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightcontent">
+        <div class="mysites">
+            <div class="img">
+                <span>Check for any important messages!</span>
+            </div>
+            <div class="container">
+                <div class="small">
+                    <h1 class="is-large is-info">Your Websites</h1> <br>
+                    <p>Name : Lovely plans</p>
+                    <p>Website link : <a href="">https</a></p>
+                    <p>Log in link : <a href="">httpshsdgvgv</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="profile">
+            <div class="img is-centered">
+                <h1 class="is-large is-info">Mthobisi Ngubane</h1> <br>
+                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            </div>
+            <div class="container">
+                
+                <div class="small">
+                    <h1 class="is-large is-info">User Details</h1> <br>
+                    <p>UserName : Mthobisi</p>
+                    <p>Surname : Ngubane</p>
+                    <p>Proffession : coder</p>
+                    <p>Email Address : mthobisimtho333@gmail.com</p>
+                    <p>Skills : html, css, js</p>
+                    <p>Wordpress sites : Get creative</p>
+                    <p>Wordpress login password : mthosasa3</p>
+                    <p>Wordpress username : mtho</p>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="container">
+            <div class="chatsonly">
+                <br> <br>
+                <div class="flex">
+                    <div class="userone">
+                     <h1 class="has-text-centered"> Mthobisi Ngubane</h1>
+                     <p class="space topspace">Hi My app is not working</p>
+                </div>
+                <div class="usertwo">
+                    <h1 class="has-text-centered">Admin</h1>
+                    <p class="topspace2">Ok how are you? let me check out the issue</p>
+                </div> 
+                </div>
+                <div class="sendtext">
+                    <input type="text" placeholder="Chat">
+                    <input type="button" value="Submit">
+                </div> <br> <br>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="phonedashboard">
+
+</div>
+<br> <br> <br>
+<script>
+    var li = document.getElementsByTagName("li");
+    var profile = document.querySelector(".profile");
+    var chats = document.querySelector(".chatsonly");
+    var sites = document.querySelector(".mysites");
+
+    function style(text){
+        for (let i = 0; i < li.length; i++) {
+            if(li[i].textContent == text){
+                li[i].classList = "is-active";
+                if(text == "Profile"){
+                    profile.style.display = "block";
+                    chats.style.display = "none";
+                    sites.style.display = "none"
+                } else if(text == "My sites"){
+                     profile.style.display = "none";
+                    chats.style.display = "none";
+                    sites.style.display = "block"
+                }else{
+                     profile.style.display = "none";
+                    chats.style.display = "block";
+                    sites.style.display = "none"
+                }
+            }
+            else{
+                li[i].classList.remove("is-active");
+            }
+        
+    }
+    }
+
+    for (let i = 0; i < li.length; i++) {
+        li[i].addEventListener("click", (e) => {
+            var a = e.target.textContent
+            var lii = li[i].parentElement;
+            style(a);
+        })
+    }
+
+</script>
