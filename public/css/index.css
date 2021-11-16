@@ -1,0 +1,43 @@
+.container{
+    margin-top: 20px;
+}
+.bg{
+    background-image: url("/assets/Cloud hosting-cuate.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    margin: 0;
+}
+.texts{
+    text-align: right;
+}
+.texts h1 {
+    margin-top: 200px;
+    margin-right: 10%;
+}
+.texts a{
+    margin-right: 10%;
+}
+.cover{
+    color: white;
+    margin: 0;
+    background-color: rgba(128, 128, 128, 0.247);
+}
+.center{
+    text-align: center;
+    background-color: teal;
+}
+#about_us{
+    font-size: x-large;
+    font-weight: bold;
+}
+#about_uss{
+    text-align: center;
+    font-weight: bolder;
+}
+.boxes{
+    gap: 5%;
+}
+#price{
+    font-weight: bold;
+}
