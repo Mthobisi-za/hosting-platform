@@ -4,6 +4,12 @@ const PORT = process.env.PORT || 5000;
 const {Pool} = require("pg");
 const { engine } = require('express-handlebars');
 const body = require("body-parser");
+const session = require("express-session");
+app.use(session({
+    resave: true,
+    saveUninitialized : "kat",
+    secret : "kat"
+}));
 
 
 ///config modules
@@ -17,12 +23,27 @@ app.set('view engine', 'handlebars');
 app.set("views", "./views");
 
 
-app.get("/", (req,res)=>{
-    res.render('index');
-});
-app.get("/myacc", (req,res)=>{
-    res.render("myaccount")
-})
+var connectionString = process.env.DATABASE_URL;
+var pool;
+if(connectionString){
+    pool = new Pool({connectionString, ssl: {rejectUnauthorized: false}})
+}else{
+        pool = new Pool({
+        port: 5432,
+        host: "localhost",
+        password: "mthobisi",
+        database: "users",
+        ssl: false
+    })
+}
+
+
+const useGetRoutes = require("./routes/getroutes")(pool);
+
+app.get("/", useGetRoutes.home)
+app.get("/myacc", useGetRoutes.myaccount)
+app.get("/login", useGetRoutes.login)
+app.get("/plan/:id", useGetRoutes.subscribe)
 
 app.listen(PORT, ()=>{
     console.log("App started on " + PORT);
